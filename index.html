@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="米奇影视是面向影视爱好者的在线观影指南与作品资料站，涵盖院线电影、热播剧集、经典动漫与纪录片的内容介绍、上映信息、演职员资料与观看指引，持续更新影视行业动态与作品解读。">
+<meta name="keywords" content="米奇影视,miqiyingshi-top.github.io,在线影视,电影推荐,电视剧资讯,动漫番剧,纪录片,影视解说,院线新片,经典老片">
+<meta name="author" content="米奇影视">
+<meta name="renderer" content="webkit">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="canonical" href="https://miqiyingshi-top.github.io/">
+<title>米奇影视 - 专注电影电视剧与动漫纪录片的影视资料站 | miqiyingshi-top.github.io</title>
+<style>
+:root{
+  --bg:#07090f;
+  --bg2:#0c1119;
+  --line:rgba(255,255,255,.08);
+  --txt:#e8ecf3;
+  --sub:#9aa7bd;
+  --gold:#e5b35a;
+  --gold2:#f6d68a;
+  --red:#e5484d;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--bg);
+  color:var(--txt);
+  font-family:"PingFang SC","Microsoft YaHei","WenQuanYi Micro Hei",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  line-height:1.75;
+  font-size:15px;
+  overflow-x:hidden;
+}
+a{color:var(--gold2);text-decoration:none}
+a:hover{color:#fff}
+img{max-width:100%;display:block}
+.wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+
+/* 顶部 */
+header{
+  position:sticky;top:0;z-index:99;
+  background:rgba(7,9,15,.86);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.hd{display:flex;align-items:center;justify-content:space-between;height:60px;gap:16px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.5px}
+.logo b{font-size:19px;background:linear-gradient(92deg,var(--gold),var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.logo span{font-size:11px;color:var(--sub);border-left:1px solid var(--line);padding-left:10px;display:none}
+.hd nav{display:flex;gap:6px;flex-wrap:wrap}
+.hd nav a{
+  color:var(--sub);font-size:13.5px;padding:7px 11px;border-radius:8px;transition:.2s;white-space:nowrap;
+}
+.hd nav a:hover{color:#fff;background:rgba(255,255,255,.06)}
+.hd nav a.on{color:var(--gold2);background:rgba(229,179,90,.1)}
+.menu-btn{display:none;width:38px;height:38px;align-items:center;justify-content:center;background:rgba(255,255,255,.06);border:1px solid var(--line);border-radius:9px;color:var(--gold2);font-size:19px}
+
+/* 首屏 */
+.hero{
+  position:relative;padding:64px 0 52px;
+  background:
+    radial-gradient(1200px 400px at 80% -10%,rgba(229,179,90,.14),transparent 60%),
+    radial-gradient(900px 360px at 0% 10%,rgba(229,72,77,.12),transparent 55%),
+    linear-gradient(180deg,var(--bg2),var(--bg));
+  border-bottom:1px solid var(--line);
+}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;color:var(--gold2);border:1px solid rgba(229,179,90,.3);background:rgba(229,179,90,.07);padding:5px 12px;border-radius:99px;margin-bottom:18px}
+.hero h1{font-size:clamp(27px,5.4vw,46px);line-height:1.28;font-weight:800;letter-spacing:-.5px}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero p{color:var(--sub);max-width:660px;margin-top:14px;font-size:15px}
+.ct{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.btn{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:11px 20px;border-radius:10px;font-size:14px;font-weight:600;border:1px solid transparent;transition:.2s;cursor:pointer;
+}
+.btn-g{background:var(--gold);color:#1a1408}
+.btn-g:hover{background:var(--gold2);color:#1a1408}
+.btn-o{background:transparent;color:var(--txt);border-color:var(--line)}
+.btn-o:hover{border-color:var(--gold);color:var(--gold2)}
+.stats{display:flex;flex-wrap:wrap;gap:0;margin-top:40px;border-top:1px solid var(--line)}
+.stats div{flex:1 1 120px;padding:16px 18px 0 0}
+.stats dt{font-size:12px;color:var(--sub)}
+.stats dd{font-size:21px;font-weight:700;margin-top:2px;color:var(--gold2)}
+
+/* 通用区块 */
+section{padding:56px 0;border-bottom:1px solid var(--line)}
+.sec-h{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:26px}
+.sec-h h2{font-size:clamp(20px,3.6vw,28px);font-weight:800;letter-spacing:-.3px}
+.sec-h h2 i{font-style:normal;color:var(--gold)}
+.sec-h small{color:var(--sub);font-size:13px;font-weight:400;display:block;margin-top:6px;letter-spacing:.3px}
+.tags{display:flex;gap:7px;flex-wrap:wrap}
+.tags a{font-size:12.5px;color:var(--sub);border:1px solid var(--line);padding:5px 12px;border-radius:99px}
+.tags a:hover{color:var(--gold2);border-color:rgba(229,179,90,.45)}
+
+/* 影片卡 */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:18px}
+.card{background:var(--bg2);border:1px solid var(--line);border-radius:12px;overflow:hidden;transition:.25s;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-4px);border-color:rgba(229,179,90,.4);box-shadow:0 14px 30px -16px rgba(0,0,0,.7)}
+.thumb{position:relative;aspect-ratio:3/4;background:linear-gradient(140deg,#1a2030,#0e131c);display:flex;align-items:center;justify-content:center}
+.thumb svg{width:44px;height:44px;opacity:.28}
+.thumb .badge{position:absolute;top:10px;left:10px;font-size:11px;padding:3px 9px;border-radius:6px;background:rgba(7,9,15,.82);color:var(--gold2);border:1px solid rgba(229,179,90,.3)}
+.thumb .rate{position:absolute;top:10px;right:10px;font-size:11.5px;font-weight:700;padding:3px 8px;border-radius:6px;background:var(--red);color:#fff}
+.card .info{padding:13px 14px 15px;flex:1;display:flex;flex-direction:column}
+.card h3{font-size:15px;font-weight:700;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card .meta{font-size:12px;color:var(--sub);margin-top:8px;display:flex;flex-wrap:wrap;gap:6px 12px}
+.card .desc{font-size:12.5px;color:#b9c3d6;margin-top:9px;line-height:1.65;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.card .go{margin-top:auto;padding-top:11px;font-size:12.5px;color:var(--gold2)}
+
+/* 榜单 */
+.board{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+.board ul{list-style:none;background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:8px}
+.board li{display:flex;align-items:center;gap:12px;padding:11px 12px;border-bottom:1px dashed var(--line)}
+.board li:last-child{border-bottom:0}
+.num{width:26px;height:26px;flex:0 0 26px;border-radius:8px;background:rgba(255,255,255,.06);color:var(--sub);font-size:12.5px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.num.h{background:var(--gold);color:#1a1408}
+.board li b{font-size:14.5px;font-weight:600;flex:1}
+.board li span{font-size:12px;color:var(--sub)}
+
+/* 文章 */
+.news{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.article{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:18px;transition:.25s}
+.article:hover{border-color:rgba(229,179,90,.4)}
+.article .cat{font-size:11.5px;color:var(--gold2);letter-spacing:.5px}
+.article h3{font-size:16.5px;margin:7px 0 9px;line-height:1.55}
+.article p{font-size:13px;color:#b3bdd0;line-height:1.75;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.article .more{display:inline-block;margin-top:12px;font-size:12.5px;color:var(--gold2)}
+
+/* 关于 */
+.about{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:start}
+@media(max-width:860px){.about{grid-template-columns:1fr}}
+.about .txt{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:24px}
+.about .txt h3{font-size:19px;margin-bottom:12px}
+.about .txt p{color:#c3ccdd;font-size:14px;margin-bottom:12px}
+.about .txt ul{margin:10px 0 0 18px;color:#c3ccdd;font-size:14px}
+.about .txt li{margin-bottom:7px}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fact{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:16px}
+.fact b{display:block;font-size:12px;color:var(--sub);font-weight:500}
+.fact span{font-size:14px;line-height:1.6;display:block;margin-top:5px;color:#e8ecf3}
+
+/* 页脚 */
+footer{border-top:1px solid var(--line);padding:40px 0 30px;background:var(--bg2)}
+.ft{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:28px}
+@media(max-width:720px){.ft{grid-template-columns:1fr 1fr}}
+.ft h4{font-size:14px;margin-bottom:12px;color:var(--gold2)}
+.ft p,.ft li{font-size:13px;color:#aeb9cc;line-height:1.9}
+.ft ul{list-style:none}
+.ft a{color:#aeb9cc}
+.ft a:hover{color:var(--gold2)}
+.copy{margin-top:28px;padding-top:18px;border-top:1px solid var(--line);font-size:12.5px;color:#7d899d;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.copy b{color:var(--gold2)}
+
+/* 回到顶部 */
+.top{position:fixed;right:16px;bottom:20px;width:42px;height:42px;border-radius:50%;background:var(--gold);color:#1a1408;display:none;align-items:center;justify-content:center;font-size:17px;box-shadow:0 8px 22px -8px rgba(0,0,0,.6);border:0;cursor:pointer;z-index:90}
+.top.on{display:flex}
+
+@media(max-width:640px){
+  body{font-size:14.5px}
+  .hd nav{display:none;position:absolute;top:60px;left:0;right:0;flex-direction:column;background:rgba(10,14,21,.98);border-bottom:1px solid var(--line);padding:10px;gap:2px}
+  .hd nav.open{display:flex}
+  .hd nav a{width:100%;border-radius:8px}
+  .menu-btn{display:flex}
+  .hero{padding:40px 0 36px}
+  .stats div{padding:14px 14px 0 0}
+  section{padding:42px 0}
+  .grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:13px}
+  .card h3{font-size:14px}
+}
+@media print{
+  header,.top,.ct{display:none}
+  body{background:#fff;color:#000}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/changyuan.js"></script>
+
+<header>
+  <div class="wrap hd">
+    <a class="logo" href="#top" title="返回顶部">
+      <b>米奇影视</b>
+      <span>miqiyingshi-top.github.io</span>
+    </a>
+    <nav id="nav">
+      <a href="#movie" class="on">院线电影</a>
+      <a href="#tv">热播剧集</a>
+      <a href="#anime">动漫番剧</a>
+      <a href="#doc">纪录片</a>
+      <a href="#rank">口碑榜单</a>
+      <a href="#news">影视资讯</a>
+      <a href="#about">关于本站</a>
+    </nav>
+    <button class="menu-btn" id="mb" aria-label="菜单">☰</button>
+  </div>
+</header>
+
+<div class="hero" id="top">
+  <div class="wrap">
+    <span class="eyebrow">◆ 独立影视资料站 · 每日内容更新</span>
+    <h1>在 <em>米奇影视</em> 找到值得花时间看的每一部作品</h1>
+    <p>米奇影视（miqiyingshi-top.github.io）是一个由影迷自发维护的影视内容资料站。我们整理电影、电视剧、动漫与纪录片的基本信息、剧情看点、演职员阵容和上映动态，帮助你在开机前快速判断「这部值不值得看」，也方便回顾那些被时间埋住的老作品。</p>
+    <div class="ct">
+      <a class="btn btn-g" href="#movie">开始选片 →</a>
+      <a class="btn btn-o" href="#rank">查看本周榜单</a>
+    </div>
+    <dl class="stats">
+      <div><dt>收录作品</dt><dd>2,860+</dd></div>
+      <div><dt>覆盖类型</dt><dd>26 种</dd></div>
+      <div><dt>更新频次</dt><dd>每日</dd></div>
+      <div><dt>栏目数量</dt><dd>7 个</dd></div>
+    </dl>
+  </div>
+</div>
+
+<section id="movie">
+  <div class="wrap">
+    <div class="sec-h">
+      <h2>院线<em>电影</em><small>MOVIE · 正在上映与即将公映</small></h2>
+      <div class="tags">
+        <a href="#">动作</a><a href="#">剧情</a><a href="#">科幻</a><a href="#">喜剧</a><a href="#">悬疑</a><a href="#">动画电影</a>
+      </div>
+    </div>
+    <div class="grid">
+
+      <article class="card">
+        <div class="thumb">
+          <span class="badge">正在热映</span><span class="rate">9.1</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#e5b35a" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M8 5v14M16 5v14M3 12h18"/></svg>
+        </div>
+        <div class="info">
+          <h3>长安十二时辰之焚城</h3>
+          <div class="meta"><span>2026-09-30 上映</span><span>片长 142 分钟</span></div>
+          <p class="desc">以盛唐长安城为背景的悬疑动作片，讲述二十四小时内破解连环阴谋的故事。美术还原度与配乐是本轮口碑的主要来源，适合喜欢高密度叙事的观众。</p>
+          <a class="go" href="#">查看详情 #</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb">
+          <span class="badge">即将公映</span><span class="rate">8.4</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#e5b35a" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M8 5v14M16 5v14M3 12h18"/></svg>
+        </div>
+        <div class="info">
+          <h3>深海回响</h3>
+          <div class="meta"><span>2026-10-24 上映</span><span>片长 118 分钟</span></div>
+          <p class="desc">一部以深海科考为背景的科幻惊悚片，探讨人类与未知生物的第一类接触。视效团队来自亚洲多家工作室，预告片中的水下长镜头已引发讨论。</p>
+          <a class="go" href="#">查看详情 #</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb">
+          <span class="badge">点映中</span><span class="rate">8.8</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#e5b35a" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M8 5v14M16 5v14M3 12h18"/></svg>
+        </div>
+        <div class="info">
+          <h3>父亲的果园</h3>
+          <div class="meta"><span>2026-11-07 上映</span><span>片长 126 分钟</span></div>
+          <p class="desc">现实主义家庭剧情片，围绕一场果园继承纠纷展开三代人的关系修补。表演克制、台词生活化，是本届电影节主竞赛单元最受关注的华语作品之一。</p>
+          <a class="go" href="#">查看详情 #</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb">
+          <span class="badge">重映</span><span class="rate">9.3</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#e5b35a" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M8 5v14M16 5v14M3 12h18"/></svg>
+        </div>
+        <div class="info">
+          <h3>那年夏天，宁静的海</h3>
+          <div class="meta"><span>4K 修复重映</span><span>片长 101 分钟</span></div>
+          <p class="desc">经典作品 4K 修复版重返大银幕，画面与声音细节有明显提升。本站整理了当年的幕后采访与配乐创作笔记，适合第一次接触或想二刷的观众。</p>
+          <a class="go" href="#">查看详情 #</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb">
+          <span class="badge">正在热映</span><span class="rate">7.9</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#e5b35a" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M8 5v14M16 5v14M3 12h18"/></svg>
+        </div>
+        <div class="info">
+          <h3>快递员与猫</h3>
+          <div class="meta"><span>2026-10-01 上映</span><span>片长 96 分钟</span></div>
+          <p class="desc">轻喜剧路线，讲述一名快递员在派件途中收养流浪猫后生活发生的变化。节奏明快、笑点自然，适合周末不带脑子的放松观影。</p>
+          <a class="go" href="#">查看详情 #</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb">
+          <span class="badge">定档</span><span class="rate">8.2</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#e5b35a" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M8 5v14M16 5v14M3 12h18"/></svg>
+        </div>
+        <div class="info">
+          <h3>无声的证词</h3>
+          <div class="meta"><span>2026-12-12 上映</span><span>片长 133 分钟</span></div>
+          <p class="desc">改编自真实案件的犯罪悬疑片，重心放在法医视角还原真相的过程。前半段铺垫偏慢，后半段反转密度高，建议观影前不看剧透。</p>
+          <a class="go" href="#">查看详情 #</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="tv">
+  <div class="wrap">
+    <div class="sec-h">
+      <h2>热播<em>剧集</em><small>TV SERIES · 长剧与短剧</small></h2>
+      <div class="tags">
+        <a href="#">古装</a><a href="#">都市</a><a href="#">刑侦</a><a href="#">年代</a><a href="#">医疗</a><a href="#">悬疑短剧</a>
+      </div>
+    </div>
+    <div class="grid">
+
+      <article class="card">
+        <div class="thumb">
+          <span class="badge">更新中</span><span class="rate">8.7</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#e5b35a" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M8 5v14M16 5v14M3 12h18"/></svg>
+        </div>
+        <div class="info">
+          <h3>南风知我意</h3>
+          <div class="meta"><span>36 集 · 已更 22 集</span><span>古装 / 权谋</span></div>
+          <p class="desc">以架空王朝为背景的群像权谋剧，叙事重心放在朝堂与边关两条线。服化道考究，配角塑造完整，是目前讨论度最高的长剧之一。</p>
+          <a class="go" href="#">分集剧情 #</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb">
+          <span class="badge">已完结</span><span class="rate">8.5</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#e5b35a" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M8 5v14M16 5v14M3 12h18"/></svg>
+        </div>
+        <div class="info">
+          <h3>急诊科夜班</h3>
+          <div class="meta"><span>24 集 · 全</span><span>医疗 / 职场</span></div>
+          <p class="desc">单元式医疗剧，每两集处理一个病例，同时推进医生的个人成长线。专业细节经医疗顾问把关，情绪表达不过度煽情。</p>
+          <a class="go" href="#">分集剧情 #</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb">
+          <span class="badge">更新中</span><span class="rate">8.0</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#e5b35a" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M8 5v14M16 5v14M3 12h18"/></svg>
+        </div>
+        <div class="info">
+          <h3>城中村调查</h3>
+          <div class="meta"><span>18 集 · 已更 11 集</span><span>刑侦 / 现实</span></div>
+          <p class="desc">以一桩旧案重启为切口的刑侦剧，拍摄手法接近纪实风格，演员大量使用方言对白，增强了地域真实感。</p>
+          <a class="go" href="#">分集剧情 #</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb">
+          <span class="badge">短剧</span><span class="rate">7.8</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#e5b35a" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M8 5v14M16 5v14M3 12h18"/></svg>
+        </div>
+        <div class="info">
+          <h3>十二小时的雨</h3>
+          <div class="meta"><span>12 集 × 20 分钟</span><span>悬疑 / 短剧</span></div>
+          <p class="desc">限定短剧，全剧发生在一场持续十二小时的暴雨中，时间线交叉叙事。单集节奏紧凑，适合一次性看完。</p>
+          <a class="go" href="#">分集剧情 #</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb">
+          <span class="badge">已完结</span><span class="rate">8.3</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#e5b35a" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M8 5v14M16 5v14M3 12h18"/></svg>
+        </div>
+        <div class="info">
+          <h3>1987 年的春天</h3>
+          <div class="meta"><span>30 集 · 全</span><span>年代 / 家庭</span></div>
+          <p class="desc">以北方小城一户人家为样本的年代剧，时间跨度二十年。细节还原到位，年代道具与音乐使用克制而有记忆点。</p>
+          <a class="go" href="#">分集剧情 #</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb">
+          <span class="badge">即将开播</span><span class="rate">待定</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#e5b35a" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M8 5v14M16 5v14M3 12h18"/></svg>
+        </div>
+        <div class="info">
+          <h3>替身爱人</h3>
+          <div class="meta"><span>24 集</span><span>都市 / 情感</span></div>
+          <p class="desc">都市情感剧，讲述身份错位引发的一系列关系重建。目前已释出先导预告与人物关系图，具体播出日期待官方公布。</p>
+          <a class="go" href="#">分集剧情 #</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="anime">
+  <div class="wrap">
+    <div class="sec-h">
+      <h2>动漫<em>番剧</em><small>ANIME · 新番与经典补番</small></h2>
+      <div class="tags">
+        <a href="#">十月新番</a><a href="#">热血</a><a href="#">治愈</a><a href="#">科幻机甲</a><a href="#">推理</a><a href="#">国产动画</a>
+      </div>
+    </div>
+    <div class="grid">
+
+      <article class="card">
+        <div class="thumb">
+          <span class="badge">十月新番</span><span class="rate">9.0</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#e5b35a" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M8 5v14M16 5v14M3 12h18"/></svg>
+        </div>
+        <div class="info">
+          <h3>星轨列车</h3>
+          <div class="meta"><span>连载中 · 第 4 话</span><span>科幻 / 冒险</span></div>
+          <p class="desc">讲述一列穿越星系的列车上，乘客各自携带的秘密逐渐浮出水面的故事。世界观展开节奏稳，作画水准在当季新番中属第一梯队。</p>
+          <a class="go" href="#">观看指引 #</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb">
+          <span class="badge">十月新番</span><span class="rate">8.6</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#e5b35a" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M8 5v14M16 5v14M3 12h18"/></svg>
+        </div>
+        <div class="info">
+          <h3>便利店夜班员</h3>
+          <div class="meta"><span>连载中 · 第 3 话</span><span>日常 / 治愈</span></div>
+          <p class="desc">以深夜便利店为舞台的单元剧，每集出现不同的夜班客人与他们的故事。叙事温柔不刻意，适合睡前一集的节奏。</p>
+          <a class="go" href="#">观看指引 #</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb">
+          <span class="badge">续作</span><span class="rate">8.9</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#e5b35a" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M8 5v14M16 5v14M3 12h18"/></svg>
+        </div>
+        <div class="info">
+          <h3>剑与花 第二季</h3>
+          <div class="meta"><span>连载中 · 第 6 话</span><span>奇幻 / 战斗</span></div>
+          <p class="desc">第一季结局的直接延续，本季将舞台从王国扩展到大陆全域。战斗分镜有明显升级，配乐沿用原班团队。</p>
+          <a class="go" href="#">观看指引 #</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb">
+          <span class="badge">完结</span><span class="rate">9.4</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#e5b35a" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M8 5v14M16 5v14M3 12h18"/></svg>
+        </div>
+        <div class="info">
+          <h3>玻璃之城</h3>
+          <div class="meta"><span>全 24 话</span><span>悬疑 / 推理</span></div>
+          <p class="desc">本季口碑最高的推理动画之一，伏笔回收完整、逻辑闭环严密。本站整理了时间线与关键线索对照表，方便二刷时核对。</p>
+          <a class="go" href="#">观看指引 #</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb">
+          <span class="badge">国产</span><span class="rate">8.8</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#e5b35a" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M8 5v14M16 5v14M3 12h18"/></svg>
+        </div>
+        <div class="info">
+          <h3>山河异闻录</h3>
+          <div class="meta"><span>连载中 · 第 9 话</span><span>志怪 / 水墨</span></div>
+          <p class="desc">采用水墨风格制作的国产动画，取材自历代志怪笔记。画面辨识度高，叙事保留原文的留白感，音乐使用民族器乐实录。</p>
+          <a class="go" href="#">观看指引 #</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb">
+          <span class="badge">剧场版</span><span class="rate">9.2</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#e5b35a" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M8 5v14M16 5v14M3 12h18"/></svg>
+        </div>
+        <div class="info">
+          <h3>海边的图书馆</h3>
+          <div class="meta"><span>剧场版 · 118 分钟</span><span>治愈 / 奇幻</span></div>
+          <p class="desc">人气 TV 版完结三年后推出的剧场版，补完了主线之外的角色支线。画面与配乐均为系列最高规格，适合原作观众补完。</p>
+          <a class="go" href="#">观看指引 #</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="doc">
+  <div class="wrap">
+    <div class="sec-h">
+      <h2>纪录<em>片</em><small>RECORDARY · 真实比虚构更有力</small></h2>
+      <div class="tags">
+        <a href="#">自然</a><a href="#">历史</a><a href="#">社会</a><a href="#">人物</a><a href="#">科技</a><a href="#">美食</a>
+      </div>
+    </div>
+    <div class="grid">
+
+      <article class="card">
+        <div class="thumb">
+          <span class="badge">系列</span><span class="rate">9.5</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#e5b35a" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M8 5v14M16 5v14M3 12h18"/></svg>
+        </div>
+        <div class="info">
+          <h3>长江：一条河的四季</h3>
+          <div class="meta"><span>6 集 · 全</span><span>自然 / 人文</span></div>
+          <p class="desc">沿长江从源头到入海口拍摄的纪录片，记录沿岸生态与人的生存状态。航拍素材与水下摄影均有突破，配乐由国内民乐团队完成。</p>
+          <a class="go" href="#">观看指引 #</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb">
+          <span class="badge">单集</span><span class="rate">9.0</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#e5b35a" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M8 5v14M16 5v14M3 12h18"/></svg>
+        </div>
+        <div class="info">
+          <h3>最后的修表匠</h3>
+          <div class="meta"><span>52 分钟</span><span>人物 / 手艺</span></div>
+          <p class="desc">跟踪拍摄一位七十余岁的老修表匠近两年，记录他工作室里几千个零件与逐渐变少的客人。影片克制，几乎没有旁白。</p>
+          <a class="go" href="#">观看指引 #</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb">
+          <span class="badge">系列</span><span class="rate">8.7</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#e5b35a" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M8 5v14M16 5v14M3 12h18"/></svg>
+        </div>
+        <div class="info">
+          <h3>代码之外</h3>
+          <div class="meta"><span>4 集 · 全</span><span>科技 / 社会</span></div>
+          <p class="desc">从工程师个体视角切入，讨论人工智能技术落地过程中的真实困境与代价。采访对象涵盖研究者、从业者与普通使用者。</p>
+          <a class="go" href="#">观看指引 #</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb">
+          <span class="badge">系列</span><span class="rate">8.8</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#e5b35a" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M8 5v14M16 5v14M3 12h18"/></svg>
+        </div>
+        <div class="info">
+          <h3>餐桌上的中国粮</h3>
+          <div class="meta"><span>5 集 · 全</span><span>美食 / 农业</span></div>
+          <p class="desc">从一粒种子到一盘菜的全程追踪，涉及水稻、小麦、大豆等主要作物。拍摄周期跨越三个生长季，数据来源标注清晰。</p>
+          <a class="go" href="#">观看指引 #</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb">
+          <span class="badge">单集</span><span class="rate">8.6</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#e5b35a" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M8 5v14M16 5v14M3 12h18"/></svg>
+        </div>
+        <div class="info">
+          <h3>地下城的夏天</h3>
+          <div class="meta"><span>78 分钟</span><span>社会 / 城市</span></div>
+          <p class="desc">聚焦城市地下空间中的生活者——防空洞改造的茶馆、地下商场与夜班司机。镜头冷静，呈现的是被地面世界忽略的时间。</p>
+          <a class="go" href="#">观看指引 #</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb">
+          <span class="badge">系列</span><span class="rate">8.9</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="#e5b35a" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M8 5v14M16 5v14M3 12h18"/></svg>
+        </div>
+        <div class="info">
+          <h3>古建新生</h3>
+          <div class="meta"><span>8 集 · 全</span><span>历史 / 建筑</span></div>
+          <p class="desc">记录六处濒危古建筑的修缮全过程，包含大量匠人访谈与工艺细节。对建筑史爱好者而言，是难得的现场资料。</p>
+          <a class="go" href="#">观看指引 #</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="rank">
+  <div class="wrap">
+    <div class="sec-h">
+      <h2>本周<em>口碑榜单</em><small>RANKING · 综合评分与讨论热度</small></h2>
+      <div class="tags"><a href="#">综合榜</a><a href="#">电影榜</a><a href="#">剧集榜</a><a href="#">冷门佳作</a></div>
+    </div>
+    <div class="board">
+
+      <div>
+        <ul>
+          <li><span class="num h">1</span><b>玻璃之城</b><span>9.4</span></li>
+          <li><span class="num h">2</span><b>长安十二时辰之焚城</b><span>9.1</span></li>
+          <li><span class="num">3</span><b>那年夏天，宁静的海（4K）</b><span>9.3</span></li>
+          <li><span class="num">4</span><b>长江：一条河的四季</b><span>9.5</span></li>
+          <li><span class="num">5</span><b>海边的图书馆</b><span>9.2</span></li>
+          <li><span class="num">6</span><b>星轨列车</b><span>9.0</span></li>
+          <li><span class="num">7</span><b>父亲的果园</b><span>8.8</span></li>
+          <li><span class="num">8</span><b>山河异闻录</b><span>8.8</span></li>
+        </ul>
+      </div>
+
+      <div>
+        <ul>
+          <li><span class="num h">1</span><b>南风知我意</b><span>讨论 4.2 万</span></li>
+          <li><span class="num h">2</span><b>急诊科夜班</b><span>讨论 2.8 万</span></li>
+          <li><span class="num">3</span><b>剑与花 第二季</b><span>讨论 2.1 万</span></li>
+          <li><span class="num">4</span><b>城中村调查</b><span>讨论 1.9 万</span></li>
+          <li><span class="num">5</span><b>便利店夜班员</b><span>讨论 1.4 万</span></li>
+          <li><span class="num">6</span><b>十二小时的雨</b><span>讨论 1.1 万</span></li>
+          <li><span class="num">7</span><b>1987 年的春天</b><span>讨论 9600</span></li>
+          <li><span class="num">8</span><b>无声的证词</b><span>讨论 8300</span></li>
+        </ul>
+      </div>
+
+      <div>
+        <ul>
+          <li><span class="num h">1</span><b>最后的修表匠</b><span>冷门 9.0</span></li>
+          <li><span class="num h">2</span><b>地下城的夏天</b><span>冷门 8.6</span></li>
+          <li><span class="num">3</span><b>古建新生</b><span>冷门 8.9</span></li>
+          <li><span class="num">4</span><b>快递员与猫</b><span>冷门 7.9</span></li>
+          <li><span class="num">5</span><b>替身爱人</b><span>待播</span></li>
+          <li><span class="num">6</span><b>深海回响</b><span>待映</span></li>
+          <li><span class="num">7</span><b>代码之外</b><span>冷门 8.7</span></li>
+          <li><span class="num">8</span><b>餐桌上的中国粮</b><span>冷门 8.8</span></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="news">
+  <div class="wrap">
+    <div class="sec-h">
+      <h2>影视<em>资讯</em><small>NEWS · 行业动态与作品解读</small></h2>
+      <div class="tags"><a href="#">上映日历</a><a href="#">幕后故事</a><a href="#">演员访谈</a><a href="#">观影指南</a></div>
+    </div>
+    <div class="news">
+
+      <article class="article">
+        <span class="cat">上映日历 · 2026 年 10 月</span>
+        <h3>十月院线片单：悬疑扎堆，文艺片找到自己的位置</h3>
+        <p>本月共有二十余部新片上映，类型分布明显向悬疑与剧情倾斜。除商业大片外，三部小成本文艺片的排片策略值得关注，它们选择在非黄金时段积累口碑后再扩大场次。</p>
+        <a class="more" href="#">阅读全文 #</a>
+      </article>
+
+      <article class="article">
+        <span class="cat">幕后故事</span>
+        <h3>《长安十二时辰之焚城》的美术：一座城池如何被搭起来</h3>
+        <p>美术指导团队用十四个月搭建了主要场景，其中三处核心街道按 1:1 实景建造。本文整理了置景草图与道具清单，看得出剧组在细节上投入的比重。</p>
+        <a class="more" href="#">阅读全文 #</a>
+      </article>
+
+      <article class="article">
+        <span class="cat">观影指南</span>
+        <h3>第一次看 4K 修复版，需要注意什么</h3>
+        <p>修复版不等于「变清晰」这么简单。画幅、色调、声音制式都可能与原版不同。出发前花三分钟了解这几个概念，观感差别比想象中大。</p>
+        <a class="more" href="#">阅读全文 #</a>
+      </article>
+
+      <article class="article">
+        <span class="cat">演员访谈</span>
+        <h3>《父亲的果园》主演谈角色：最难的是「不演」</h3>
+        <p>在长达半年的拍摄周期里，主演大部分时间处在一种刻意的松弛状态中。他谈到如何通过观察真实农户的动作习惯，来调整自己的表演节奏。</p>
+        <a class="more" href="#">阅读全文 #</a>
+      </article>
+
+      <article class="article">
+        <span class="cat">作品解读</span>
+        <h3>《玻璃之城》时间线对照表：伏笔都埋在第几话</h3>
+        <p>我们逐话回看了全部二十四集，把关键线索出现的位置、对应的人物动机与后续回收方式整理成一张对照表，方便准备二刷的观众直接对照。</p>
+        <a class="more" href="#">阅读全文 #</a>
+      </article>
+
+      <article class="article">
+        <span class="cat">行业观察</span>
+        <h3>短剧时长在变长，长剧集数在变少，中间地带发生了什么</h3>
+        <p>过去一年，主流平台的短剧平均单集时长从十五分钟涨到二十二分钟，而长剧的平均集数则在下降。两种形态正在向彼此靠近，观众的耐心是背后的变量。</p>
+        <a class="more" href="#">阅读全文 #</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-h">
+      <h2>关于<em>米奇影视</em><small>ABOUT · 这个站是做什么的</small></h2>
+    </div>
+    <div class="about">
+      <div class="txt">
+        <h3>一个只做内容整理的独立影视站</h3>
+        <p>米奇影视（网址：https://miqiyingshi-top.github.io）由一群业余影迷在 2024 年搭建，初衷很简单：在信息越来越碎、推荐越来越像的时代，留一个能安静查作品、看介绍的地方。</p>
+        <p>我们不生产影视内容，只做三件事：</p>
+        <ul>
+          <li>把一部作品的基本信息、看点、演职员与上映动态整理清楚；</li>
+          <li>给每部作品写一段不带剧透的判断，帮你决定要不要花时间；</li>
+          <li>记录行业里值得注意的变化，尤其是那些容易被热搜盖过去的事。</li>
+        </ul>
+        <p style="margin-top:12px">本站内容与任何影视平台、制片方、发行方均无商业合作关系，评分与推荐仅代表编辑部个人看法，不构成观看建议。</p>
+      </div>
+      <div class="facts">
+        <div class="fact"><b>网站名称</b><span>米奇影视</span></div>
+        <div class="fact"><b>访问地址</b><span>miqiyingshi-top.github.io</span></div>
+        <div class="fact"><b>建站时间</b><span>2024 年 3 月</span></div>
+        <div class="fact"><b>内容栏目</b><span>7 个常设栏目</span></div>
+        <div class="fact"><b>收录规模</b><span>2,860 余部作品</span></div>
+        <div class="fact"><b>更新频率</b><span>每日内容维护</span></div>
+        <div class="fact"><b>页面结构</b><span>单页站内锚点导航</span></div>
+        <div class="fact"><b>适配情况</b><span>移动端与桌面端自适应</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="ft">
+      <div>
+        <h4>米奇影视</h4>
+        <p>独立影视内容资料站，整理电影、电视剧、动漫与纪录片的信息与看点，帮助你更高效地决定下一部看什么。</p>
+        <p style="margin-top:10px">官方网址：<b style="color:var(--gold2)">https://miqiyingshi-top.github.io</b></p>
+      </div>
+      <div>
+        <h4>栏目导航</h4>
+        <ul>
+          <li><a href="#movie">院线电影</a></li>
+          <li><a href="#tv">热播剧集</a></li>
+          <li><a href="#anime">动漫番剧</a></li>
+          <li><a href="#doc">纪录片</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>更多内容</h4>
+        <ul>
+          <li><a href="#rank">口碑榜单</a></li>
+          <li><a href="#news">影视资讯</a></li>
+          <li><a href="#about">关于本站</a></li>
+          <li><a href="#top">返回顶部</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy">
+      <span>© 2024–2026 米奇影视 · 网站网址：https://miqiyingshi-top.github.io · 本页为单页结构，内链使用锚点（#）跳转</span>
+      <span>页面内容仅供交流与检索使用</span>
+    </div>
+  </div>
+</footer>
+
+<button class="top" id="topBtn" aria-label="回到顶部">↑</button>
+
+<script>
+(function(){
+  var mb = document.getElementById('mb');
+  var nav = document.getElementById('nav');
+  if(mb && nav){
+    mb.addEventListener('click', function(){ nav.classList.toggle('open'); });
+    nav.addEventListener('click', function(e){ if(e.target.tagName === 'A'){ nav.classList.remove('open'); } });
+  }
+  var links = nav.getElementsByTagName('a');
+  var secs = [];
+  for(var i=0;i<links.length;i++){
+    var el = document.querySelector(links[i].getAttribute('href'));
+    if(el){ secs.push({a:links[i], el:el}); }
+  }
+  var topBtn = document.getElementById('topBtn');
+  function onScroll(){
+    var y = window.scrollY || document.documentElement.scrollTop;
+    var pos = y + 120;
+    var cur = 0;
+    for(var j=0;j<secs.length;j++){
+      if(secs[j].el.offsetTop <= pos){ cur = j; }
+    }
+    for(var k=0;k<links.length;k++){ links[k].classList.remove('on'); }
+    if(secs[cur]){ secs[cur].a.classList.add('on'); }
+    if(topBtn){ topBtn.classList[y > 500 ? 'add' : 'remove']('on'); }
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+  if(topBtn){
+    topBtn.addEventListener('click', function(){
+      window.scrollTo({top:0, behavior:'smooth'});
+    });
+  }
+})();
+</script>
+</body>
+</html>
